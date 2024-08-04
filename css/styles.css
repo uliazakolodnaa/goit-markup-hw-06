@@ -24,6 +24,8 @@ button{
     cursor: pointer;
 }
 img {
+  width: 100%;
+  height: auto;
     display: block;
   }
 
@@ -81,9 +83,15 @@ border-bottom: 1px solid #e7e9fc;
   overflow: auto;
   pointer-events: none;
   opacity: 0;
+  z-index: 99999999;
+  visibility: hidden;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),    
+  visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .close-header{
-  display: block;
+  display: flex;
+  cursor: pointer;
+  justify-content: center;
     margin-left: auto;
     border-radius: 100%;
     fill: #e7e9fc;
@@ -97,6 +105,31 @@ border-bottom: 1px solid #e7e9fc;
     height: 24px;
     padding: 0;
 }
+.header-nav {
+margin-bottom: auto;
+}
+.container-menu{
+  max-width: 320px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 100%;
+    position: relative;
+    padding-top: 72px;
+    padding-left: 16px;
+    padding-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.open-header-nav-btn {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
 .mob-header-item{
   font-weight: 700;
     font-size: 36px;
@@ -104,6 +137,9 @@ border-bottom: 1px solid #e7e9fc;
     line-height: 1.11;
     letter-spacing: 0.02em;
     color: #2e2f42;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
 }
 .mob-header-item:not(:last-child) {
   margin-bottom: 40px;
@@ -112,14 +148,14 @@ border-bottom: 1px solid #e7e9fc;
   text-decoration: none;
   color: #2e2f42;
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
 }
 
 .mob-header-menu-link.current {
   color: #404bbf;
 }
 .mob-header-address {
-  font-style: normal;
-  color: #434455;
+margin-bottom: 48px;
 }
 
 .mob-address-item {
@@ -132,12 +168,18 @@ border-bottom: 1px solid #e7e9fc;
 }
 
 .mob-address-link {
-  text-decoration: none;
-  color: #2e2f42;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  color: #434455;
+  font-style: normal;
 }
 
 .mob-address-list {
-  margin-bottom: 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 .mob-address-link:focus,
 .mob-address-link:active {
@@ -147,8 +189,20 @@ border-bottom: 1px solid #e7e9fc;
 .mob-icons-list {
     display: flex;
     gap: 40px;
-}
+    justify-content: center;
+  max-width: 280px;
+  height: 40px;
 
+}
+.mob-icons-sociall{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background-color: #4d5ae5;
+  border-radius: 50%;
+}
 .mob-icons-sociall:not(:last-child) {
     padding-right: 40px;
 }
@@ -380,6 +434,7 @@ padding: 96px 0;
     padding: 32px 0 ;
 }
 .portfolio-list-item{
+  background-color: #ffffff;
 border-radius: 0px 0px 4px 4px;
 box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
     0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
@@ -659,6 +714,7 @@ text-decoration: none;
 color:#4d5ae5;
  display: inline-block;
         margin-bottom: 16px;
+        text-align: center;
 }
 .text-logo-two{
 color:#f4f4fd;
@@ -732,6 +788,9 @@ color:#f4f4fd;
 .modal-close:focus > .modal-close-icons {
   fill: #ffffff;
 }
+.modal-field{
+  position: relative;
+}
 
 .modal-title {
 margin-top: 0;    
@@ -769,9 +828,11 @@ margin-bottom:16px;
   left: 16px;
   top: 50%;
   transform: translateY(-50%);
-
+fill: #2e2f42;
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+
 .modal-text {
   width: 100%;
   height: 120px;
@@ -846,6 +907,12 @@ display: flex;
   background-color: #404bbf;
   border: none;
   fill: #f4f4fd;
+}
+.modal-link{
+  line-height: 1.33;
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+  color: #4d5ae5;
 }
 
 @media  screen and (min-width: 768px) {
@@ -972,6 +1039,10 @@ width: 264px;
   width: 264px;
 }
 
+.modal {
+  min-width: 408px;
+  min-height: 584px;
+}
 
 }
 @media  screen and (min-width: 1158px) {
@@ -1136,7 +1207,14 @@ padding-bottom: 120px;
 .footer-btn-icon{
   fill: #ffffff;
 }
-
+.modal {
+  border-radius: 4px;
+  min-width: 408px;
+  min-height: 584px;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12),
+      0 2px 1px 0 rgba(0, 0, 0, 0.2);
+  background: #fcfcfc;
+}
 
 
 }
